@@ -1,0 +1,10 @@
+{
+    "/photos": {
+        "target": "https://api.unsplash.com",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
+}

@@ -1,0 +1,55 @@
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+<div class="container">
+    <div class="card" *ngFor="let photo of Photos">
+        <figure class="card__thumb">
+            <img src="{{photo.urls.small}}" alt="Picture by Kyle Cottrell" class="card__image">
+            <figcaption class="card__caption">
+                <h2 class="card__title"></h2>
+                <h2></h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- <img src="{{photo.urls.small}}"> -->
+                    </div>
+                    <div class="col-md-8" style="margin-top: -30px;">
+                        <p class="card__snippet"><img src="{{photo.user.profile_image.small}}" style="width:"> {{photo.user.name}}
+                        </p>
+                        <!-- <h5>{{photo?.sponsorship.tagline}}</h5> -->
+                    </div>
+                </div>
+
+                <!-- <div *ngIf="photo.sponsorship.tagline">
+
+                </div> -->
+
+                <!-- <a href="" class="card__button">Read more</a> -->
+            </figcaption>
+        </figure>
+    </div>
+
+
+
+
+
+
+    <!--    <div class="card shadow-sm">
+        <img src="{{photo.urls.small}}" class="bd-placeholder-img card-img-top" width="100%" height="225">
+
+
+         <div class="card-body">
+
+            <h5 class="card-title"> <img class="card-img-top" src="{{photo.user.profile_image.small}}" style="width:40px"> {{photo.user.first_name}}
+            </h5>
+            <p class="card-text">{{photo.user.bio}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+            </div>
+        </div> 
+    </div>
+</div>-->
+
+    <!-- <p class="disclaimer">All pictures were taken from <a class="disclaimer__link" href="https://unsplash.com/" target="_blank">Unsplash.</a></p> -->

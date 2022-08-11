@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { AlbumsComponent } from './albums/albums.component';
 import {HttpClientModule} from '@angular/common/http';
 import { PhotosComponent } from './photos/photos.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AlbumsComponent,
-    PhotosComponent
+    PhotosComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

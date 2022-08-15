@@ -1,32 +1,38 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap" rel="stylesheet">
 
 <div class="container">
-    <div class="card" *ngFor="let photo of Photos">
-        <figure class="card__thumb">
-            <img src="{{photo.urls.small}}" alt="Picture by Kyle Cottrell" class="card__image">
-            <figcaption class="card__caption">
-                <h2 class="card__title"></h2>
-                <h2></h2>
-                <div class="row">
-                    <div class="col-md-4">
-                        <!-- <img src="{{photo.urls.small}}"> -->
+    <div *ngIf="Photos else error">
+        <div class="card" *ngFor="let photo of Photos">
+            <figure class="card__thumb" style="box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);">
+                <a href=""> <img src="{{photo.urls.small}}" alt="Picture by Kyle Cottrell" class="card__image"></a>
+                <figcaption class="card__caption">
+                    <h2 class="card__title"></h2>
+                    <h2></h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <!-- <img src="{{photo.urls.small}}"> -->
+                        </div>
+                        <div class="col-md-8" style="margin-top: -30px;">
+                            <p class="card__snippet"><img src="{{photo.user.profile_image.small}}"> {{photo.user.name}}
+                            </p>
+                            <h5><a style="text-decoration:none; color:rgb(255, 250, 245)" href="{{photo.sponsorship?.tagline}}">
+                                    {{photo.sponsorship?.tagline_url}}</a></h5>
+                        </div>
                     </div>
-                    <div class="col-md-8" style="margin-top: -30px;">
-                        <p class="card__snippet"><img src="{{photo.user.profile_image.small}}" style="width:"> {{photo.user.name}}
-                        </p>
-                        <!-- <h5>{{photo?.sponsorship.tagline}}</h5> -->
-                    </div>
-                </div>
-
-                <!-- <div *ngIf="photo.sponsorship.tagline">
-
+                    <!-- <p>-------</p> -->
+                    <!-- <div *ngIf="photo.sponsorship.tagline">
+                    
                 </div> -->
 
-                <!-- <a href="" class="card__button">Read more</a> -->
-            </figcaption>
-        </figure>
+                </figcaption>
+            </figure>
+        </div>
     </div>
 
+
+    <ng-template #error>
+        <h3> Sorry check later</h3>
+    </ng-template>
 
 
 

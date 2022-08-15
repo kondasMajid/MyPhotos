@@ -19,7 +19,7 @@ export class AlbumsComponent implements OnInit {
     this.photoService.getUsplash()
       .subscribe(a => {
         this.Photos = a;
-        console.log(this.Photos);
+        // console.log(this.Photos);
       });
   }
 

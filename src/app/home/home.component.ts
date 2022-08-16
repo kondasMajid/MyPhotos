@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotoService } from '../shared/photo.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,9 @@ export class HomeComponent implements OnInit {
   albums: any;
   Photos: any;
   tag: any;
-  searchKeyword = 'dog';
+  searchKeywords = ''; //User search keyword
+  searcData: any;  //Stores the Search Query by the API
+  searchControl = new FormControl('');
   constructor(private photoService: PhotoService) { }
 
   // getPhotos() {
@@ -29,6 +32,14 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  searchPhotos() {
+    this.photoService.getPhotosSearch(this.searchKeywords).subscribe((search: any) => {
+      this.searcData = search;
+      console.log('search', search)
+    })
+
+    console.log(this.searchKeywords)
+  }
   ngOnInit(): void {
 
     // this.albums = this.photoService.getAlbums();

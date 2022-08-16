@@ -1,3 +1,4 @@
+import { TestpageComponent } from './testpage/testpage.component';
 import { HomeComponent } from './home/home.component';
 import { PhotosComponent } from './photos/photos.component';
 import { AlbumsComponent } from './albums/albums.component';
@@ -6,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'testzzz', component: PhotosComponent },
   { path: 'photos/:albumId', component: PhotosComponent }
 ];
 

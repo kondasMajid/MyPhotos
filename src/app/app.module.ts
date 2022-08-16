@@ -7,6 +7,10 @@ import { AlbumsComponent } from './albums/albums.component';
 import {HttpClientModule} from '@angular/common/http';
 import { PhotosComponent } from './photos/photos.component';
 import { HomeComponent } from './home/home.component';
+import { TestpageComponent } from './testpage/testpage.component';
+import { HeaderComponent } from './inc/header/header.component';
+import { FooterComponent } from './inc/footer/footer.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,12 +18,16 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     AlbumsComponent,
     PhotosComponent,
-    HomeComponent
+    HomeComponent,
+    TestpageComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

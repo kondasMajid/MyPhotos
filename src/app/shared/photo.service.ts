@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class PhotoService {
 
   apiKey = environment.Api_Key;
-  Scheme = "https://api.unsplash.coms"
+  Scheme = "https://api.unsplash.com"
   constructor(private http: HttpClient) {
 
   }
@@ -26,16 +26,17 @@ export class PhotoService {
   }
 
   getUsplash(): Observable<any[]> {
-    return this.http.get<any>(`${this.Scheme}/photos/?client_id=${this.apiKey}`)
-
+    return this.http.get<any>(`${this.Scheme}/photos/?client_id=${this.apiKey}&per_page=30&orientation=squarish`)
   }
 
 
-  getPhotosSearch() {
-    // return this.http.get(`https://api.unsplash.com/search/photos?query=fire&per_page=30&orientation=portrait&page=1`);
+  getPhotosSearch(keyword: string) {
+    // return this.http.get(`https://api.unsplash.com/search/photos?query=${keyword}&per_page=30&orientation=portrait&page=1`);
 
+    // return this.http.get<any>(`https://api.unsplash.com/search/photos?page=1&query=${keyword}`);
+    // return this.http.get(`${this.Scheme}/search/photos?page=1&query=${keyword}`);
     // return this.http.get(`https://api.unsplash.com/search/photos?query=fire&per_page=30&orientation=portrait&page=1`);
-    // return this.http.get(`${this.Scheme}/search/photos?client_id=${this.apiKey}$query=${keyword}`);
+    return this.http.get(`${this.Scheme}/search/photos?query=${keyword}&per_page=30&client_id=${this.apiKey}`);
   }
 
   // errorHandler(error: HttpErrorResponse) {

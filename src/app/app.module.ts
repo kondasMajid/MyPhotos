@@ -11,6 +11,7 @@ import { TestpageComponent } from './testpage/testpage.component';
 import { HeaderComponent } from './inc/header/header.component';
 import { FooterComponent } from './inc/footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { ErrorComponent } from './inc/error/error.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     TestpageComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

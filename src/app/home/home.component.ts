@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotoService } from '../shared/photo.service';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +11,13 @@ import { FormControl } from '@angular/forms';
 export class HomeComponent implements OnInit {
 
   albums: any;
-  Photos: any;
+  randomPhotosData: any;
   tag: any;
   searchKeywords = ''; //User search keyword
-  searcData: any;  //Stores the Search Query by the API
+  searchPhotosData: any;  //Stores the Search Query by the API
+  error_404: any;      //to conditon later set to false to hide 404 error
   searchControl = new FormControl('');
-  constructor(private photoService: PhotoService) { }
+  constructor(private photoService: PhotoService, private router: Router) { }
 
   // getPhotos() {
   //   this.photoService.getPhotosSearch()
@@ -24,18 +26,23 @@ export class HomeComponent implements OnInit {
   //     })
   // }
 
-  getRandom() {
+  getRandomPhotos() {
     return this.photoService.getUsplash()
       .subscribe(a => {
-        this.Photos = a;
-        console.log('-----', this.Photos);
+        this.randomPhotosData = a;
+        if (this.randomPhotosData) {
+          this.error_404 = false;
+        }
+        console.log('-----', this.randomPhotosData);
       });
   }
 
-  searchPhotos() {
+  getSearchedPhotos() {
     this.photoService.getPhotosSearch(this.searchKeywords).subscribe((search: any) => {
-      this.searcData = search;
-      console.log('search', search)
+      this.searchPhotosData = search;
+      this.randomPhotosData = false;
+      this.error_404 = false;
+      console.log('search', this.searchPhotosData)
     })
 
     console.log(this.searchKeywords)
@@ -44,7 +51,8 @@ export class HomeComponent implements OnInit {
 
     // this.albums = this.photoService.getAlbums();
 
-    this.getRandom();
+    this.getRandomPhotos();
+    this.error_404 = true;
     // this.getPhotos();
 
     // this.photoService.getPhotosSearch().subscribe((a) => console.log(a))

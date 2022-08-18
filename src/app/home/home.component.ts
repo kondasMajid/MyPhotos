@@ -53,10 +53,10 @@ export class HomeComponent implements OnInit {
       } else {
         this.controlSearch = 'sorry no search result for  : ' + this.searchKeywords;
       }
-      console.log('search', this.searchPhotosData)
+      // console.log('search', this.searchPhotosData)
     })
 
-    console.log(this.searchKeywords)
+    // console.log(this.searchKeywords)
   }
 
   getCollections() {

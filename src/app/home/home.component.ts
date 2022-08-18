@@ -48,8 +48,10 @@ export class HomeComponent implements OnInit {
       this.searchPhotosData = search;
       this.randomPhotosData = false;
       this.error_404 = false;
-      if (this.searchPhotosData?.results.length === 0) {
-        console.log('sorry no search result found')
+      if (this.searchPhotosData?.results.length >= 1) {
+        this.controlSearch = '';
+      } else {
+        this.controlSearch = 'sorry no search result for  : ' + this.searchKeywords;
       }
       console.log('search', this.searchPhotosData)
     })

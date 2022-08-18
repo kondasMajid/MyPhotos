@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   searchKeywords = ''; //User search keyword
   searchPhotosData: any;  //Stores the Search Query by the API
   error_404: any;      //to conditon later set to false to hide 404 error
+  controlSearch: any;
   searchControl = new FormControl('');
 
   constructor(private photoService: PhotoService,
@@ -38,7 +39,7 @@ export class HomeComponent implements OnInit {
           this.error_404 = false;
         }
         this.gallery = this.getRandomPhotos;
-        console.log('-----', this.randomPhotosData);
+        // console.log('-----', this.randomPhotosData);
       });
   }
 
@@ -47,6 +48,9 @@ export class HomeComponent implements OnInit {
       this.searchPhotosData = search;
       this.randomPhotosData = false;
       this.error_404 = false;
+      if (this.searchPhotosData?.results.length === 0) {
+        console.log('sorry no search result found')
+      }
       console.log('search', this.searchPhotosData)
     })
 
@@ -61,7 +65,7 @@ export class HomeComponent implements OnInit {
     this.getRandomPhotos();
     this.error_404 = true;
     // this.getPhotos();
-    this.getCollections();
+    // this.getCollections();
   }
 
 }

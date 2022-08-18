@@ -53,29 +53,60 @@
         </div>
     </div>
 
-    <div class="row" *ngFor="let photo of searchPhotosData?.results ">
-        <!--  Show if searched query is true-->
-        <div class="col">
-            <div class="card" style="">
 
-                figure class="card__thumb" style="box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);">
-                <a href=""> <img src="{{photo.urls.small}}" alt="Picture by Kyle Cottrell" class="card__image"></a>
-                <figcaption class="card__caption">
-                    <h2 class="card__title"></h2>
-                    <h2></h2>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col"><img src="{{photo.user.profile_image.small}}"></div>
-                            <div class="col">
-                                <p class=""> {{photo.user.name}} </p>
+    <div class="row" style="padding-left: calc(var(--bs-gutter-x) * 3.5);">
+        <!-- <div *ngIf="randomPhotosData"> -->
+        <div class="col" *ngIf="searchPhotosData?.results.length > 1; else noPhotos">
+            <div class="card " *ngFor="let photo of searchPhotosData?.results" style="float: left;">
+
+                <figure class="card__thumb" style="box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);">
+                    <a href=""> <img src="{{photo.urls.small}}" alt="Picture by Kyle Cottrell" class="card__image"></a>
+                    <figcaption class="card__caption">
+                        <h2 class="card__title"></h2>
+                        <h2></h2>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col"><img src="{{photo.user.profile_image.small}}"></div>
+                                <div class="col">
+                                    <p class=""> {{photo.user.name}} </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    </figure>
+                    </figcaption>
+                </figure>
+
+
             </div>
         </div>
+        <ng-template #noPhotos>
+            <h4 class="text-center text-danger">No search result found......................</h4>
+        </ng-template>
         <!-- </div> -->
     </div>
+
+
+    <!--  Show if searched query is true searchPhotosData?.results-->
+    <!-- <div class="row" *ngFor="let photo of searchPhotosData?.results ">
+        <div class="col">
+            <div class="card" style="">
+                <figure class="card__thumb" style="box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);">
+                    <a href=""> <img src="{{photo.urls.small}}" alt="Picture by Kyle Cottrell" class="card__image"></a>
+                    <figcaption class="card__caption">
+                        <h2 class="card__title"></h2>
+                        <h2></h2>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col"><img src="{{photo.user.profile_image.small}}"></div>
+                                <div class="col">
+                                    <p class=""> {{photo.user.name}} </p>
+                                </div>
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </div> -->
 
     <!-- <div *ngIf="hide_404"> -->
     <div *ngIf="error_404">

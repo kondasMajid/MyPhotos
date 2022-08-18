@@ -24,12 +24,6 @@ export class HomeComponent implements OnInit {
   constructor(private photoService: PhotoService,
     private router: Router) { }
 
-  // getPhotos() {
-  //   this.photoService.getPhotosSearch()
-  //     .subscribe((res) => {
-  //       console.log('Hello', res)
-  //     })
-  // }
 
   getRandomPhotos() {
     return this.photoService.getUsplash()
@@ -39,7 +33,6 @@ export class HomeComponent implements OnInit {
           this.error_404 = false;
         }
         this.gallery = this.getRandomPhotos;
-        // console.log('-----', this.randomPhotosData);
       });
   }
 
@@ -66,8 +59,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getRandomPhotos();
     this.error_404 = true;
-    // this.getPhotos();
-    // this.getCollections();
   }
 
 }

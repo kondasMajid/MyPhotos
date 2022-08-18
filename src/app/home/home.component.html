@@ -1,42 +1,22 @@
-<div class="container">
-
-
-    <app-header></app-header>
-
-    <div class="col-md-12 p-4 p-md-5 mb-4 text-white rounded bg-dark">
+<div class="container-fluid">
+    <!-- <app-header></app-header> -->
+    <div class="col-md-12 p-4 p-md-5 mb-4 text-white rounded bg-dark" style="margin-top:-40px">
         <div class="row">
-            <h1 class="display-4 fst-bolder">Mysplash</h1>
+            <h1 class="display-4 fst-bolder mb-4" style="font-family:  verdana;">Mysplash</h1>
             <div class="col-md-8">
-
                 <input class="form-control " type="text" [(ngModel)]="searchKeywords" placeholder="Search free high-resolution photos" aria-label="Search">
-
             </div>
             <div class="col-md-4">
-                <button class="btn btn-outline-success " type="submit" (click)="getSearchedPhotos()">Search</button>
-                <!-- <p class="lead my-3"></p> -->
-
+                <button class="btn btn-outline-info " type="submit" (click)="getSearchedPhotos()">Search</button>
             </div>
             <p class="lead my-3 mt-5">The internet’s source of freely-usable images. Powered by creators everywhere.
             </p>
         </div>
     </div>
-    <!-- <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-        <div class="row">
-            <h1 class="display-4 font-bold mb-5xxx">Mysplash</h1>
-            <div class="col-md-8 px-1gg">
-                <input class="form-control mr-sm-2" type="text" [(ngModel)]="searchKeywords" placeholder="Search free high-resolution photos" aria-label="Search">
-            </div>
-            <div class="col-md-4 px-1gg">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="getSearchedPhotos()">Search</button>
-            </div>
-        </div>
-        <p class="lead my-3 mt-5">The internet’s source of freely-usable images. Powered by creators everywhere. </p>
-    </div> -->
 
     <div>
-
     </div>
-    <div class="row">
+    <div class="row" style="padding-left: calc(var(--bs-gutter-x) * 3.5);">
         <div *ngIf="randomPhotosData">
             <div class="col">
                 <div class="card " *ngFor="let photo of randomPhotosData" style="float: left;">
@@ -45,18 +25,27 @@
                         <figcaption class="card__caption">
                             <h2 class="card__title"></h2>
                             <h2></h2>
-                            <div class="row">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col"><img src="{{photo.user.profile_image.small}}"></div>
+                                    <div class="col">
+                                        <p class=""> {{photo.user.name}} </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="row">
                                 <div class="col-md-4">
-                                    <!-- <img src="{{photo.urls.small}}"> --><img src="{{photo.user.profile_image.small}}">
+                                    <img src="{{photo.user.profile_image.small}}">
                                 </div>
                                 <div class="col-md-8">
-                                    <p class="card__snippet"> {{photo.user.name}}
-                                    </p>
-
+                                    <p class=""> {{photo.user.name}} </p>
                                 </div>
-                                <p><a style="text-decoration:none; color:rgb(255, 250, 245)" href="{{photo.sponsorship?.tagline}}">
-                                        {{photo.sponsorship?.tagline_url}}</a></p>
-                            </div>
+                                <p>
+                                    <a style="text-decoration:none; color:rgb(255, 250, 245)" href="{{photo.sponsorship?.tagline}}">
+                                        {{photo.sponsorship?.tagline_url}}</a>
+                                </p>
+                            </div> -->
                         </figcaption>
                     </figure>
                 </div>
@@ -67,26 +56,22 @@
     <div class="row" *ngFor="let photo of searchPhotosData?.results ">
         <!--  Show if searched query is true-->
         <div class="col">
-            <div class="card " style="float: left;">
+            <div class="card" style="">
 
-                <figure class="card__thumb" style="box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);">
-                    <a href=""> <img src="{{photo.urls.small}}" alt="Picture by Kyle Cottrell" class="card__image"></a>
-                    <figcaption class="card__caption">
-                        <h2 class="card__title"></h2>
-                        <h2></h2>
+                figure class="card__thumb" style="box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);">
+                <a href=""> <img src="{{photo.urls.small}}" alt="Picture by Kyle Cottrell" class="card__image"></a>
+                <figcaption class="card__caption">
+                    <h2 class="card__title"></h2>
+                    <h2></h2>
+                    <div class="container">
                         <div class="row">
-                            <div class="col-md-4">
-                                <!-- <img src="{{photo.urls.small}}"> -->
-                            </div>
-                            <div class="col-md-8" style="margin-top: -30px;">
-                                <p class="card__snippet"><img src="{{photo.user.profile_image.small}}"> {{photo.user.name}}
-                                </p>
-                                <h5><a style="text-decoration:none; color:rgb(255, 250, 245)" href="{{photo.sponsorship?.tagline}}">
-                                        {{photo.sponsorship?.tagline_url}}</a></h5>
+                            <div class="col"><img src="{{photo.user.profile_image.small}}"></div>
+                            <div class="col">
+                                <p class=""> {{photo.user.name}} </p>
                             </div>
                         </div>
-                    </figcaption>
-                </figure>
+                    </div>
+                    </figure>
             </div>
         </div>
         <!-- </div> -->
@@ -104,6 +89,7 @@
 
 <hr>
 
+<app-footer></app-footer>
 <!-- <div class="co" *ngFor="let photo of Photos">
     
     <div class="container">

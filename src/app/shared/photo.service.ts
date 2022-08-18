@@ -39,6 +39,11 @@ export class PhotoService {
     return this.http.get(`${this.Scheme}/search/photos?query=${keyword}&per_page=30&client_id=${this.apiKey}`);
   }
 
+  getCollection() {
+    return this.http.get(`${this.Scheme}/collections?page=1`);
+
+  }
+
   // errorHandler(error: HttpErrorResponse) {
   //   return Observable.throw(error.message || "Server Error")
   // }

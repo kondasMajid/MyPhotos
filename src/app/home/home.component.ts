@@ -53,12 +53,15 @@ export class HomeComponent implements OnInit {
     console.log(this.searchKeywords)
   }
 
-
+  getCollections() {
+    this.photoService.getCollection().subscribe((data) => console.log('collection', data))
+  }
 
   ngOnInit(): void {
     this.getRandomPhotos();
     this.error_404 = true;
     // this.getPhotos();
+    this.getCollections();
   }
 
 }

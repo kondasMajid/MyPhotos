@@ -16,10 +16,7 @@ export class PhotosComponent implements OnInit {
 
     this.albumId = this.route.snapshot.params['albumId'];
     this.photos = this.photoService.getPhotos(this.albumId)
-    // console.log('oooo', this.photos);
-    // this.photoService.getUsplash()
-    //   .subscribe(a => { console.log('all here', a) })
-    // console.log('my data', data);
+ 
   }
 
 }

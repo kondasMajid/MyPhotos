@@ -35,7 +35,8 @@
                         ],
                         "scripts": [
                             "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-                        ]
+                        ],
+                        "allowedCommonJsDependencies": ["mousetrap", "hammerjs", "@ks89/angular-modal-gallery"]
                     },
                     "configurations": {
                         "production": {

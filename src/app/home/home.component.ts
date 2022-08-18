@@ -3,6 +3,7 @@ import { PhotoService } from '../shared/photo.service';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,13 +12,16 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   albums: any;
+  gallery: any
   randomPhotosData: any;
   tag: any;
   searchKeywords = ''; //User search keyword
   searchPhotosData: any;  //Stores the Search Query by the API
   error_404: any;      //to conditon later set to false to hide 404 error
   searchControl = new FormControl('');
-  constructor(private photoService: PhotoService, private router: Router) { }
+
+  constructor(private photoService: PhotoService,
+    private router: Router) { }
 
   // getPhotos() {
   //   this.photoService.getPhotosSearch()
@@ -33,6 +37,7 @@ export class HomeComponent implements OnInit {
         if (this.randomPhotosData) {
           this.error_404 = false;
         }
+        this.gallery = this.getRandomPhotos;
         console.log('-----', this.randomPhotosData);
       });
   }
@@ -47,21 +52,13 @@ export class HomeComponent implements OnInit {
 
     console.log(this.searchKeywords)
   }
+
+
+
   ngOnInit(): void {
-
-    // this.albums = this.photoService.getAlbums();
-
     this.getRandomPhotos();
     this.error_404 = true;
     // this.getPhotos();
-
-    // this.photoService.getPhotosSearch().subscribe((a) => console.log(a))
-
-
-    // this.tag =  this.Photos;
-    // this.tag ? this.Photos.sponsorship.tagline : ""
   }
-
-
 
 }

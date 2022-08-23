@@ -1,12 +1,13 @@
+<app-header></app-header>
 <div class="container-fluid">
-    <div class="col-md-12 p-4 p-md-5 mb-4 text-white rounded bg-dark" style="margin-top:-40px">
+    <div class="col-md-12 p-4 p-md-5 mb-4 text-white rounded" style="margin-top:100px;background-color: darkcyan;">
         <div class="row">
-            <h1 class="display-4 fst-bolder mb-4" style="font-family:  verdana;">Mysplash</h1>
+            <h1 class="display-5 fst-bolder mb-4" style="font-family:  verdana;">MySplash</h1>
             <div class="col-md-8">
-                <input class="form-control " type="text" [(ngModel)]="searchKeywords" placeholder="Search free high-resolution photos" aria-label="Search">
+                <input class="form-control form-control-lg" type="text" [(ngModel)]="searchKeywords" placeholder="Search free high-resolution photos" aria-label="Search">
             </div>
             <div class="col-md-4">
-                <button class="btn btn-outline-info " type="submit" (click)="getSearchedPhotos()">Search</button>
+                <button class="btn btn-outline-light btn-lg" type="submit" (click)="getSearchedPhotos()">Search</button>
             </div>
             <p class="lead my-3 mt-5">The internet’s source of freely-usable images. Powered by creators everywhere.
             </p>

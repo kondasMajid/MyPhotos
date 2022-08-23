@@ -12,11 +12,7 @@ import { HeaderComponent } from './inc/header/header.component';
 import { FooterComponent } from './inc/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { ErrorComponent } from './inc/error/error.component';
-// import { HammerJs } from 'hammerjs'
-// import { Mousetrap } from 'mousetrap' 
 
-import { HammerModule } from "../../node_modules/@angular/platform-browser";
-import { GalleryModule } from '@ks89/angular-modal-gallery';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,8 +29,6 @@ import { GalleryModule } from '@ks89/angular-modal-gallery';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    GalleryModule,
-    HammerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

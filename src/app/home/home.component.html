@@ -42,6 +42,7 @@
 
     <div class="row" style="padding-left: calc(var(--bs-gutter-x) * 3.5);">
         <div class="col" *ngIf="searchPhotosData?.results.length > 1;">
+            <p class="text-center">Search result of <span style="font-weight: bold;">{{searchKeywords}}</span></p>
             <div class="card " *ngFor="let photo of searchPhotosData?.results" style="float: left;">
 
                 <figure class="card__thumb" style="box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);">

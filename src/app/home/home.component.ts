@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit {
   error_404: any;      //to conditon later set to false to hide 404 error
   controlSearch: any;
   searchControl = new FormControl('');
+  isLoading: any = false;
+  searchReady: any = false;
 
   constructor(private photoService: PhotoService,
     private router: Router) { }
@@ -37,17 +39,23 @@ export class HomeComponent implements OnInit {
   }
 
   getSearchedPhotos() {
-    this.photoService.getPhotosSearch(this.searchKeywords).subscribe((search: any) => {
-      this.searchPhotosData = search;
-      this.randomPhotosData = false;
-      this.error_404 = false;
-      if (this.searchPhotosData?.results.length >= 1) {
-        this.controlSearch = '';
-      } else {
-        this.controlSearch = 'sorry no search result for  : ' + this.searchKeywords;
-      }
-      // console.log('search', this.searchPhotosData)
-    })
+    this.isLoading = true;
+
+    this.photoService.getPhotosSearch(this.searchKeywords)
+      .subscribe((search: any) => {
+        this.searchReady = true;
+        this.isLoading = false;
+        this.searchPhotosData = search;
+        this.randomPhotosData = false;
+        this.error_404 = false;
+
+        if (this.searchPhotosData?.results.length >= 1) {
+          this.controlSearch = '';
+        } else {
+          this.controlSearch = 'sorry no search result for  : ' + this.searchKeywords;
+        }
+        // console.log('search', this.searchPhotosData)
+      })
 
     // console.log(this.searchKeywords)
   }

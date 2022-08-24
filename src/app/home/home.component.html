@@ -14,7 +14,9 @@
         </div>
     </div>
 
-    <div>
+    <div *ngIf="isLoading" style="text-align: center;">
+        <!-- <p>Loading ...............</p> -->
+        <img src="../../assets/Iphone-spinner-2.gif" alt="">
     </div>
     <div class="row" style="padding-left: calc(var(--bs-gutter-x) * 3.5);">
         <div *ngIf="randomPhotosData">
@@ -50,8 +52,10 @@
 
     <div class="row" style="padding-left: calc(var(--bs-gutter-x) * 3.5);">
         <div class="col" *ngIf="searchPhotosData?.results.length > 1;">
-            <p class="text-center">Search result for <span style="font-weight: bold;">{{searchKeywords |
-                    uppercase}}</span></p>
+            <div *ngIf="searchReady">
+                <p class="text-center">Search result for <span style="font-weight: bold;">{{searchKeywords |
+                        uppercase}}</span></p>
+            </div>
             <div class="card " *ngFor="let photo of searchPhotosData?.results" style="float: left;">
 
                 <!-- <figure class="card__thumb" style="box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);"> -->

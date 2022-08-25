@@ -12,7 +12,8 @@ import { Observable } from 'rxjs';
 export class PhotoService {
 
   apiKey = environment.Api_Key;
-  Scheme = "https://api.unsplash.com"
+  Scheme = "https://api.unsplash.com";
+  page = 0;
   constructor(private http: HttpClient) {
 
   }
@@ -26,8 +27,10 @@ export class PhotoService {
   }
 
   getUsplash(): Observable<any[]> {
+
+    this.page++;
     return this.http.get<any>
-      (`${this.Scheme}/photos/?client_id=${this.apiKey}&per_page=100&orientation=squarish`)
+      (`${this.Scheme}/photos/?client_id=${this.apiKey}&per_page=30&orientation=potrait$page={this.page}`)
   }
 
 

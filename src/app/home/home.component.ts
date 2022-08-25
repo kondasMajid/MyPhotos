@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
     return this.photoService.getUsplash()
       .subscribe(a => {
         this.RandomPhotosData = a;
+        console.log(this.RandomPhotosData)
         if (this.RandomPhotosData) {
           this.error_404 = false;
         }
@@ -71,7 +72,7 @@ export class HomeComponent implements OnInit {
 
     if (this.currentPage === this.SearchPhotosData?.results.length - 1) {
       // this.showBtnNext = false;
-    } 
+    }
   }
 
   ngOnInit(): void {

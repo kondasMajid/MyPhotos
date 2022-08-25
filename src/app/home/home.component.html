@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="container-fluid">
-    <div class="col-md-12 p-4 p-md-5 mb-4 text-white rounded" style="margin-top:100px;background-color: darkcyan;">
+    <div class="col-md-12 p-4 p-md-5 mb-4 text-white rounded search-area" style="">
         <div class="row">
             <h1 class="display-5 fst-bolder mb-4" style="font-family:  verdana;">MySplash</h1>
             <div class="col-md-8">
@@ -18,12 +18,12 @@
         <!-- <p>Loading ...............</p> -->
         <img src="../../assets/Iphone-spinner-2.gif" alt="">
     </div>
-    <div class="row" style="padding-left: calc(var(--bs-gutter-x) * 3.5);">
-        <div *ngIf="randomPhotosData">
+    <div class="row" style="padding: 0 10%;">
+        <div *ngIf="RandomPhotosData">
             <div class="col">
-                <div class="card " *ngFor="let photo of randomPhotosData" style="float: left;">
+                <div class="card" style="margin: 10px 9px;" *ngFor="let photo of RandomPhotosData" style="float: left;">
                     <!-- <figure class="card__thumb" style="box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);"> -->
-                    <a href=""> <img src="{{photo.urls.small}}" alt="Picture by Kyle Cottrell" class="card__image"></a>
+                    <a href=""> <img src="{{photo.urls.small}}" alt="" class="card__image"></a>
                     <figcaption class="card__caption">
                         <h2 class="card__title"></h2>
                         <div class="card-body">
@@ -31,7 +31,7 @@
                                 <div class="col-md-2">
                                     <p class="card-title"><img class="rounded-circle" src="{{photo.user.profile_image.small}}"> </p>
                                 </div>
-                                <div class="col-md-10">
+                                <div class="col-md-10 text-light">
                                     {{photo.user.name}}
                                 </div>
                             </div>
@@ -51,12 +51,12 @@
     </div>
 
     <div class="row" style="padding-left: calc(var(--bs-gutter-x) * 3.5);">
-        <div class="col" *ngIf="searchPhotosData?.results.length > 1;">
+        <div class="col" *ngIf="SearchPhotosData?.results.length > 1;">
             <div *ngIf="searchReady">
                 <p class="text-center">Search result for <span style="font-weight: bold;">{{searchKeywords |
                         uppercase}}</span></p>
             </div>
-            <div class="card " *ngFor="let photo of searchPhotosData?.results" style="float: left;">
+            <div class="card " *ngFor="let photo of SearchPhotosData?.results" style="float: left;">
 
                 <!-- <figure class="card__thumb" style="box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);"> -->
                 <a href=""> <img src="{{photo.urls.small}}" alt="Picture by Kyle Cottrell" class="card__image"></a>

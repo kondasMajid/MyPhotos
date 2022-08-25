@@ -1,4 +1,4 @@
-// import { environment } from './../../environments/environment.prod';
+
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
@@ -26,17 +26,15 @@ export class PhotoService {
   }
 
   getUsplash(): Observable<any[]> {
-    return this.http.get<any>(`${this.Scheme}/photos/?client_id=${this.apiKey}&per_page=30&orientation=squarish`)
+    return this.http.get<any>
+      (`${this.Scheme}/photos/?client_id=${this.apiKey}&per_page=30&orientation=squarish`)
   }
 
 
   getPhotosSearch(keyword: string) {
     // return this.http.get(`https://api.unsplash.com/search/photos?query=${keyword}&per_page=30&orientation=portrait&page=1`);
-
-    // return this.http.get<any>(`https://api.unsplash.com/search/photos?page=1&query=${keyword}`);
-    // return this.http.get(`${this.Scheme}/search/photos?page=1&query=${keyword}`);
-    // return this.http.get(`https://api.unsplash.com/search/photos?query=fire&per_page=30&orientation=portrait&page=1`);
-    return this.http.get(`${this.Scheme}/search/photos?query=${keyword}&per_page=30&client_id=${this.apiKey}`);
+    return this.http.get
+      (`${this.Scheme}/search/photos?query=${keyword}&per_page=30&client_id=${this.apiKey}`);
   }
 
   getCollection() {
@@ -44,8 +42,5 @@ export class PhotoService {
 
   }
 
-  // errorHandler(error: HttpErrorResponse) {
-  //   return Observable.throw(error.message || "Server Error")
-  // }
 
 }

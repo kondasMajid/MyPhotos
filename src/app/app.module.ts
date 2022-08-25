@@ -12,6 +12,7 @@ import { HeaderComponent } from './inc/header/header.component';
 import { FooterComponent } from './inc/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { ErrorComponent } from './inc/error/error.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ErrorComponent } from './inc/error/error.component';
     TestpageComponent,
     HeaderComponent,
     FooterComponent,
-    ErrorComponent
+    ErrorComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

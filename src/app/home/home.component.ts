@@ -13,15 +13,16 @@ export class HomeComponent implements OnInit {
 
   albums: any;
   gallery: any
-  randomPhotosData: any;
+  RandomPhotosData: any;
   tag: any;
   searchKeywords = ''; //User search keyword
-  searchPhotosData: any;  //Stores the Search Query by the API
+  SearchPhotosData: any;  //Stores the Search Query by the API
   error_404: any;      //to conditon later set to false to hide 404 error
   controlSearch: any;
   searchControl = new FormControl('');
   isLoading: any = false;
   searchReady: any = false;
+  currentPage: any = 0;
 
   constructor(private photoService: PhotoService,
     private router: Router) { }
@@ -30,8 +31,8 @@ export class HomeComponent implements OnInit {
   getRandomPhotos() {
     return this.photoService.getUsplash()
       .subscribe(a => {
-        this.randomPhotosData = a;
-        if (this.randomPhotosData) {
+        this.RandomPhotosData = a;
+        if (this.RandomPhotosData) {
           this.error_404 = false;
         }
         this.gallery = this.getRandomPhotos;
@@ -45,16 +46,16 @@ export class HomeComponent implements OnInit {
       .subscribe((search: any) => {
         this.searchReady = true;
         this.isLoading = false;
-        this.searchPhotosData = search;
-        this.randomPhotosData = false;
+        this.SearchPhotosData = search;
+        this.RandomPhotosData = false;
         this.error_404 = false;
 
-        if (this.searchPhotosData?.results.length >= 1) {
-          this.controlSearch = '';
+        if (this.SearchPhotosData?.results.length >= 1) {
+          this.controlSearch = `found  ${this.SearchPhotosData?.results.length} results`;
         } else {
           this.controlSearch = 'sorry no search result for  : ' + this.searchKeywords;
         }
-        // console.log('search', this.searchPhotosData)
+        // console.log('search', this.SearchPhotosData)
       })
 
     // console.log(this.searchKeywords)
@@ -62,6 +63,15 @@ export class HomeComponent implements OnInit {
 
   getCollections() {
     this.photoService.getCollection().subscribe((data) => console.log('collection', data))
+  }
+
+  onBtnNext() {
+    this.currentPage++;
+    this.SearchPhotosData();
+
+    if (this.currentPage === this.SearchPhotosData?.results.length - 1) {
+      // this.showBtnNext = false;
+    } 
   }
 
   ngOnInit(): void {

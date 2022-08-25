@@ -13,6 +13,8 @@ import { FooterComponent } from './inc/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { ErrorComponent } from './inc/error/error.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MatCardModule } from '@angular/material/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,15 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HeaderComponent,
     FooterComponent,
     ErrorComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule, MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -27,7 +27,7 @@ export class PhotoService {
 
   getUsplash(): Observable<any[]> {
     return this.http.get<any>
-      (`${this.Scheme}/photos/?client_id=${this.apiKey}&per_page=30&orientation=squarish`)
+      (`${this.Scheme}/photos/?client_id=${this.apiKey}&per_page=100&orientation=squarish`)
   }
 
 

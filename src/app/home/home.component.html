@@ -18,34 +18,32 @@
         <!-- <p>Loading ...............</p> -->
         <img src="../../assets/Iphone-spinner-2.gif" alt="">
     </div>
-    <div class="row" style="padding: 0 10%;">
+    <div class="row" style="">
         <div *ngIf="RandomPhotosData">
-            <div class="col">
-                <div class="card" style="margin: 10px 9px;" *ngFor="let photo of RandomPhotosData" style="float: left;">
-                    <!-- <figure class="card__thumb" style="box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);"> -->
-                    <a href=""> <img src="{{photo.urls.small}}" alt="" class="card__image"></a>
-                    <figcaption class="card__caption">
-                        <h2 class="card__title"></h2>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <p class="card-title"><img class="rounded-circle" src="{{photo.user.profile_image.small}}"> </p>
-                                </div>
-                                <div class="col-md-10 text-light">
-                                    {{photo.user.name}}
-                                </div>
+            <div class="cardm" style="border:none" *ngFor="let photo of RandomPhotosData" style="float: left;    padding: 25px;">
+                <!-- <figure class="card__thumb" style="box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);"> -->
+                <a href=""> <img src="{{photo.urls.small}}" alt="" class="card__image"></a>
+                <figcaption class="card__caption">
+                    <h2 class="card__title"></h2>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p class="card-title"><img class="rounded-circle" src="{{photo.user.profile_image.small}}"> </p>
+                            </div>
+                            <div class="col-md-10 text-light">
+                                {{photo.user.name}}
                             </div>
                         </div>
-                    </figcaption>
-                    <!-- <div class="card" style="width: ;">
+                    </div>
+                </figcaption>
+                <!-- <div class="card" style="width: ;">
                             <img class="card-img-top" src="{{photo.urls.small}}" alt="Card image cap">
                             <div class="card-body">
                                
                                 <p class="card-text"> </p>
                             </div>
                         </div> -->
-                    <!-- </figure> -->
-                </div>
+                <!-- </figure> -->
             </div>
         </div>
     </div>
